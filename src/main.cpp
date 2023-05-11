@@ -7,7 +7,7 @@
 
 const char *host = "webhook.site";
 const int httpsPort = 443;
-const String postUrl = "/b1f90192-bc32-42b3-9f1e-3db2bf5c4ebf";
+const String postUrl = "/webhooksite_uuid";
 
 AsyncWebServer server(80);
 
@@ -17,7 +17,7 @@ void setup()
   digitalWrite(LED_BUILTIN, HIGH); // Turn off the LED
   Serial.begin(115200);
 
-  WiFi.begin("oplus_co_apiofqg", "SALIS");
+  WiFi.begin("WLANName", "SALIS");
   while (WiFi.status() != WL_CONNECTED)
   {
     delay(1000);
@@ -36,7 +36,7 @@ void setup()
 
 //https://www.willpeavy.com/tools/minifier/
   server.on("/", HTTP_GET, [](AsyncWebServerRequest *request)
-            { request->send(200, "text/html", "<!DOCTYPE html><html lang='en' class='bg-black overflow-hidden'><head> <meta charset='UTF-8'> <meta http-equiv='X-UA-Compatible' content='IE=edge'> <meta name='viewport' content='width=device-width, initial-scale=1.0'> <title>Kajaanitech NY </title> <script src='https://cdn.tailwindcss.com/3.3.1'></script></head><body> <div class='grid h-screen place-items-center text-white font-bold animate-pulse transition duration-200'> ESP8266 - Kajaanitech NY Runnaa! </div></body></html>"); });
+            { request->send(200, "text/html", "<!DOCTYPE html><html lang='en' class='bg-black overflow-hidden'><head> <meta charset='UTF-8'> <meta http-equiv='X-UA-Compatible' content='IE=edge'> <meta name='viewport' content='width=device-width, initial-scale=1.0'> <title>Kajaanitech NY </title> <script src='https://cdn.tailwindcss.com/3.3.1'></script></head><body> <div class='grid h-screen place-items-center text-white font-bold animate-pulse transition duration-200'> ESP8266 - Palvelin runnaa! </div></body></html>"); });
 
 
   server.on("/json", HTTP_GET, [](AsyncWebServerRequest *request)
